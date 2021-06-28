@@ -42,3 +42,11 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Visual Studio Enterprise (fbedf7e6-ad1f-4cdb-a307-8147aa1e1f2c)'
+    appType: 'webAppLinux'
+    WebAppName: 'gidcdevops1'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|14-lts'
